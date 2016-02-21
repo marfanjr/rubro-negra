@@ -1,0 +1,45 @@
+/*----------------------------------------------------------------------------*/
+/* UFPR – Bacharelado em Ciência da Computação                                */
+/* CI057: Algoritmos e Estruturas de dados III, 2sem/2013                     */
+/* Aluno: Marfan Fragoso Veras Junior - GRR20113754                           */
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+Uma árvore vermelho-preto é uma árvore de pesquisa binária com um bit extra de 
+armazenamento por nó: sua cor, que pode ser VERMELHO ou PRETO. Restringindo o
+modo como os nós podem ser coloridos em qualquer caminho desde a raiz até uma
+folha, as árvores vermelho-preto asseguram que nenhum desses caminhos será 
+maior que duas vezes o comprimento de qualquer outro, de forma que a árvore é
+aproximadamente balanceada.
+Cada nó da árvore contém agora os campos cor, chave, pai, esq e dir. 
+
+Uma árvore de pesquisa binária é uma árvore vermelho-preto se satisfaz às se-
+guintes propriedades vermelho-preto:
+    1. Todo nó é vermelho ou preto.
+    2. A raiz é preta.
+    3. Toda folha (NIL) é preta.
+    4. Se um nó é vermelho, então ambos os seus filhos são pretos.
+    5. Para cada nó, todos os caminhos desde um nó até as folhas descendentes
+       contêm o mesmo número de nós pretos.
+Por questão de conveniência no uso de condições limites no código de árvores
+vermelho-preto, usamos uma única sentinela para representar NILL. Para uma ár-
+vore vermelho-preto T, a sentinela nodonull é um objeto com os mesmos campos
+que um nó comum na árvore. Seu compo cor é PRETO e seus outros campos--pai, esq,
+dir e chave--podem ser deginidos como valores arbitrários.
+Chamamos o número de nós pretos em qualquer caminho desde um nó x, sem incluir
+esse nó, até uma folha, de altura de preto do nó. Pela prorpriedade 5, a noção 
+de altura de preto é bem definida, pois todos os caminhos descendentes a partir
+do nó têm o mesmo número de nós pretos. Definimos a altura de preto de uma ár-
+vore vermelho-preto como a altura de preto de sua raiz.
+
+Lema
+Uma árvore vermelho-preto com n nós internos tem altura no máximo 2lg(n+1).
+
+As operações sobre árvores de pesquisa arvRN_insere e arvRN_remove, quando
+executadas sobre uma árvore vermelho-preto com n chaves demoram o tempo O(lg n).
+Considerando-se que elas modificam a árvore, o resultado pode violar as pro-
+priedades vermelho-preto enumeradas acima. Para restabelecer essas propriedades,
+devemos mudar as cores de alguns nós na árvore e também mudar a estrutura de 
+ponteiros.
+Mudamos a estrutura de ponteiros através de rotação.
+/*----------------------------------------------------------------------------*/
